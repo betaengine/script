@@ -1,9 +1,9 @@
 #!/bin/bash
-branch=$1
 echo "Updating SkyWire..."
 cd /usr/local/go/src/github.com/skycoin/skywire
-git pull origin $branch
+git pull origin master
 cd /usr/local/go/src/github.com/skycoin/skywire/cmd
+[[ -d /usr/local/go/pkg/linux_arm64/github.com/skycoin ]] && rm -rf /usr/local/go/pkg/linux_arm64/github.com/skycoin
 go install ./...
 echo "Updating SkyWire Script..."
 cd /usr/local/skywire-script
