@@ -14,7 +14,7 @@ echo "Starting SkyWire Manager"
 if [[ ! -d /tmp/skywire-pids ]]; then
 	mkdir -p /tmp/skywire-pids
 fi
-nohup /usr/local/go/bin/manager -web-dir /usr/local/go/bin/dist-manager &
+nohup /usr/local/go/bin/manager -web-dir /usr/local/go/bin/dist-manager > /dev/null 2>&1 &
 echo $! > "/tmp/skywire-pids/${Manager_Pid_FILE}"
 cat "/tmp/skywire-pids/${Manager_Pid_FILE}"
 cd /root
