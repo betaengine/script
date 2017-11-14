@@ -3,8 +3,11 @@ branch=$1
 echo "Updating SkyWire..."
 cd /usr/local/go/src/github.com/skycoin/skywire
 git pull origin $branch
-cd /usr/local/go//src/github.com/skycoin/skywire/cmd
+cd /usr/local/go/src/github.com/skycoin/skywire/cmd
 go install ./...
+echo "Updating SkyWire Script..."
+cd /usr/local/skywire-script
+git pull origin master
 
 [[ -f /tmp/skywire-pids/manager.pid ]] && pkill -F /tmp/skywire-pids/manager.pid
 [[ -f /tmp/skywire-pids/node.pid ]] && pkill -F /tmp/skywire-pids/node.pid
