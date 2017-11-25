@@ -1,9 +1,8 @@
 #!/bin/bash
 # SkyWire Install
 Manager_Pid_FILE=manager.pid
-isKill=$1
-if [ $isKill == "yes" ];then
-	[[ -f /tmp/skywire-pids/${Manager_Pid_FILE} ]] && pkill -F "tmp/skywire-pids/${Manager_Pid_FILE}"
+if [[ -z $1 ]];then
+	[[ -f /tmp/skywire-pids/${Manager_Pid_FILE} ]] && pkill -F "tmp/skywire-pids/${Manager_Pid_FILE}" && rm "/tmp/skywire-pids/${Manager_Pid_FILE}"
 fi
 command -v "manager" && command -v "discovery" && command -v "socksc" && command -v "sockss" && command -v "sshc" && command -v "sshs" > /dev/null || {
 		[[ -d /usr/local/go/pkg/linux_arm64/github.com/skycoin ]] && rm -rf /usr/local/go/pkg/linux_arm64/github.com/skycoin
@@ -20,4 +19,4 @@ cat "/tmp/skywire-pids/${Manager_Pid_FILE}"
 cd /root
 echo "SkyWire Manager Done"
 
-/usr/bin/node_install.sh
+/usr/bin/node_start.sh
