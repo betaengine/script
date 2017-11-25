@@ -3,7 +3,7 @@
 Node_Pid_FILE=node.pid
 
 if [[ -z $1 ]];then
-	[[ -f /tmp/skywire-pids/${Node_Pid_FILE} ]] && pkill -F "tmp/skywire-pids/${Node_Pid_FILE}" && rm "/tmp/skywire-pids/${Node_Pid_FILE}"
+	[[ -f /tmp/skywire-pids/${Node_Pid_FILE} ]] && pkill -F "/tmp/skywire-pids/${Node_Pid_FILE}" && rm "/tmp/skywire-pids/${Node_Pid_FILE}"
 fi
 
 command -v "manager" || command -v "discovery" || command -v "socksc" || command -v "sockss" || command -v "sshc" || command -v "sshs" > /dev/null || {
