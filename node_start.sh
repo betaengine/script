@@ -15,7 +15,8 @@ echo "Starting SkyWire Node"
 if [[ ! -d /tmp/skywire-pids ]]; then
 	  mkdir -p /tmp/skywire-pids
 fi
-nohup /usr/local/go/bin/node -connect-manager -manager-address 192.168.0.2:5998 -manager-web 192.168.0.2:8000 -discovery-address www.yiqishare.com:5999 -address :5000 > /dev/null 2>&1 &
+cd /usr/local/go/bin/
+nohup ./node -connect-manager -manager-address 192.168.0.2:5998 -manager-web 192.168.0.2:8000 -discovery-address www.yiqishare.com:5999 -address :5000 > /dev/null 2>&1 &
 echo $! > "/tmp/skywire-pids/${Node_Pid_FILE}"
 cat "/tmp/skywire-pids/${Node_Pid_FILE}"
 cd /root
