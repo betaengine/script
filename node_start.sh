@@ -18,7 +18,7 @@ fi
 command -v "${GOBIN_DIR}/bin/manager" && command -v "${GOBIN_DIR}/bin/discovery" && command -v "${GOBIN_DIR}/bin/node" && command -v "${GOBIN_DIR}/bin/socksc" && command -v "${GOBIN_DIR}/bin/sockss" && command -v "${GOBIN_DIR}/bin/sshc" && command -v "${GOBIN_DIR}/bin/sshs" > /dev/null || {
 	  [[ -d ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin ]] && rm -rf ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin
 			  cd ${GOBIN_DIR}/src/github.com/skycoin/skywire/cmd
-			  ${GOBIN_DIR}/bin/go install ./... > /tmp/skywire_install.log 2>&1
+			  ${GOBIN_DIR}/bin/go install ./... 2>> /tmp/skywire_install_errors.log
 }
 
 echo "Starting SkyWire Node"
