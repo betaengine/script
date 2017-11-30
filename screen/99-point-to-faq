@@ -14,6 +14,6 @@ done
 
 . /etc/armbian-release
 
-printf "New to Armbian? Check the documentation first: \e[0;92mhttps://github.com/feifeiwoye/build"
+printf "New to Skywire? Check the documentation first: \e[0;92mhttps://github.com/feifeiwoye/build"
 
 (sleep 1 && rm "$0") &
