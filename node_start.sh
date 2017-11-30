@@ -9,9 +9,7 @@ if [[ ! -d ${TMP_DIR} ]]; then
 	  mkdir -p ${TMP_DIR}
 fi
 
-if [[ -z $1 ]];then
-	Need_Kill=$1
-fi
+[[ ! -z $1 ]] && Need_Kill=$1
 
 if [ $Need_Kill = "yes" ];then
 	[[ -f ${TMP_DIR}/${Node_Pid_FILE} ]] && pkill -F "${TMP_DIR}/${Node_Pid_FILE}" && rm "${TMP_DIR}/${Node_Pid_FILE}"
