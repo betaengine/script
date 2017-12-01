@@ -1,9 +1,12 @@
 #!/bin/bash
+
+GOBIN_DIR=/usr/local/skywire-go
+
 echo "Updating SkyWire..."
-cd /usr/local/go/src/github.com/skycoin/skywire
+cd ${GOBIN_DIR}/src/github.com/skycoin/skywire
 git pull origin master
-cd /usr/local/go/src/github.com/skycoin/skywire/cmd
-# [[ -d /usr/local/go/pkg/linux_arm64/github.com/skycoin ]] && rm -rf /usr/local/go/pkg/linux_arm64/github.com/skycoin
+cd ${GOBIN_DIR}/src/github.com/skycoin/skywire/cmd
+# [[ -d ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin ]] && rm -rf ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin
 go install ./...
 echo "Updating SkyWire Script..."
 cd /usr/local/skywire-script

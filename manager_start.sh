@@ -2,7 +2,7 @@
 # SkyWire Install
 Manager_Pid_FILE=manager.pid
 Node_Pid_FILE=node.pid
-GOBIN_DIR=/usr/local/go
+GOBIN_DIR=/usr/local/skywire-go
 TMP_DIR=/tmp/skywire-pids
 Need_Kill=no
 
