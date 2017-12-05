@@ -4,6 +4,7 @@ GOBIN_DIR=/usr/local/skywire-go
 
 echo "Updating SkyWire..."
 cd ${GOBIN_DIR}/src/github.com/skycoin/skywire
+git reset --hard
 git pull origin master
 cd ${GOBIN_DIR}/src/github.com/skycoin/skywire/cmd
 # [[ -d ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin ]] && rm -rf ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin
@@ -11,10 +12,12 @@ go install ./... 2>> /tmp/skywire_install_errors.log
 
 echo "Updating SkyWire Script..."
 cd /usr/local/skywire-script
+git reset --hard
 git pull origin master
 
 echo "Updating SkyWire Web..."
 cd /usr/local/skywire-static
+git reset --hard
 [[ -d skywire-manager ]] && cd skywire-manager && git pull origin master
 
 echo "Updating SkyWire Screen..."
