@@ -6,6 +6,7 @@ GOEXEC_DIR=/usr/local/go
 GOBIN_DIR=/usr/local/skywire-go
 TMP_DIR=/tmp/skywire-pids
 Need_Kill=no
+Web_Dir=/usr/local/skywire-static/skywire_manager
 
 if [[ ! -d ${TMP_DIR} ]]; then
 	mkdir -p ${TMP_DIR}
@@ -26,7 +27,7 @@ command -v "${GOBIN_DIR}/bin/manager" && command -v "${GOBIN_DIR}/bin/discovery"
 
 echo "Starting SkyWire Manager"
 cd ${GOBIN_DIR}/bin/
-nohup ./manager -web-dir ${GOBIN_DIR}/bin/dist-manager > /dev/null 2>&1 &
+nohup ./manager -web-dir ${Web_Dir} > /dev/null 2>&1 &
 echo $! > "${TMP_DIR}/${Manager_Pid_FILE}"
 cat "${TMP_DIR}/${Manager_Pid_FILE}"
 nohup ./node -connect-manager -manager-address 192.168.0.2:5998 -manager-web 192.168.0.2:8000 -discovery-address www.yiqishare.com:5999 -address :5000 -seed-path /root/.skywire/node/keys.json > /dev/null 2>&1 &
