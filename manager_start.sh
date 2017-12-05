@@ -20,6 +20,7 @@ if [ $Need_Kill = "yes" ];then
 fi
 
 command -v "${GOBIN_DIR}/bin/manager" && command -v "${GOBIN_DIR}/bin/discovery" && command -v "${GOBIN_DIR}/bin/node" && command -v "${GOBIN_DIR}/bin/socksc" && command -v "${GOBIN_DIR}/bin/sockss" && command -v "${GOBIN_DIR}/bin/sshc" && command -v "${GOBIN_DIR}/bin/sshs" > /dev/null || {
+		export GOPATH=${GOBIN_DIR}
 		[[ -d ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin ]] && rm -rf ${GOBIN_DIR}/pkg/linux_arm64/github.com/skycoin
 		cd ${GOBIN_DIR}/src/github.com/skycoin/skywire/cmd
 		${GOEXEC_DIR}/bin/go install ./... 2>> /tmp/skywire_install_errors.log
